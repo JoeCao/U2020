@@ -3,23 +3,23 @@ package com.jakewharton.u2020.util;
 import android.content.SharedPreferences;
 
 public final class EnumPreferences {
-  private EnumPreferences() {
-  }
-
-  public static <T extends Enum<T>> T getEnumValue(SharedPreferences preferences, Class<T> type,
-      String key, T defaultValue) {
-    String name = preferences.getString(key, null);
-    if (name != null) {
-      try {
-        return Enum.valueOf(type, name);
-      } catch (IllegalArgumentException ignored) {
-      }
+    private EnumPreferences() {
     }
 
-    return defaultValue;
-  }
+    public static <T extends Enum<T>> T getEnumValue(SharedPreferences preferences, Class<T> type,
+                                                     String key, T defaultValue) {
+        String name = preferences.getString(key, null);
+        if (name != null) {
+            try {
+                return Enum.valueOf(type, name);
+            } catch (IllegalArgumentException ignored) {
+            }
+        }
 
-  public static void saveEnumValue(SharedPreferences preferences, String key, Enum value) {
-    preferences.edit().putString(key, value.name()).apply();
-  }
+        return defaultValue;
+    }
+
+    public static void saveEnumValue(SharedPreferences preferences, String key, Enum value) {
+        preferences.edit().putString(key, value.name()).apply();
+    }
 }

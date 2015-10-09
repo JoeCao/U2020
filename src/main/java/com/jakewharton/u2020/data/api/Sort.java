@@ -1,17 +1,18 @@
 package com.jakewharton.u2020.data.api;
 
 public enum Sort {
-  STARS("watchers"),
-  FORKS("forks"),
-  UPDATED("updated");
+    STARS("watchers"),
+    FORKS("forks"),
+    UPDATED("updated");
 
-  private final String value;
+    private final String value;
 
-  Sort(String value) {
-    this.value = value;
-  }
+    Sort(String value) {
+        this.value = value;
+    }
 
-  @Override public String toString() {
-    return value;
-  }
+    @Override
+    public String toString() {
+        return value;
+    }
 }
